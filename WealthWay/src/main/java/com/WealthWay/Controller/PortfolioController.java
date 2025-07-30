@@ -15,7 +15,8 @@ import com.WealthWay.Services.PortfolioService;
 import com.WealthWay.model.PortfolioDTO;
 import com.WealthWay.model.portfolio;
 
-@RestController("api/portfolio")
+@RestController()
+@RequestMapping("/api/portfolio")
 public class PortfolioController {
  
 	
