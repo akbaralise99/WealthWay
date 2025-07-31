@@ -1,4 +1,4 @@
-package com.WealthWay.model;
+package com.WealthWay.model.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

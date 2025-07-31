@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,8 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.WealthWay.Services.PortfolioService;
 import com.WealthWay.model.PortfolioDTO;
-import com.WealthWay.model.portfolio;
-
+import com.WealthWay.model.Entity.portfolio;
 @RestController()
 @RequestMapping("/api/portfolio")
 public class PortfolioController {
@@ -30,7 +30,10 @@ public class PortfolioController {
 
 	    @GetMapping("/user/{userId}")
 	    public ResponseEntity<List<portfolio>> getUserPortfolio(@PathVariable Long userId) {
-	        return ResponseEntity.ok(portfolioService.getPortfoliosByUserId(userId));
+	    	
+	    	List<portfolio>	data  =portfolioService.getPortfoliosByUserId(userId);
+	    	System.out.println("grtting data "+data)	 ;
+	    	return ResponseEntity.ok(data);
 	    }
 	
 	

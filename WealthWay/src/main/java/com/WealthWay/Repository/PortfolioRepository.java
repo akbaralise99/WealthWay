@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.WealthWay.model.PortfolioDTO;
-import com.WealthWay.model.portfolio;
+import com.WealthWay.model.Entity.portfolio;
 
 @Repository
 public interface PortfolioRepository  extends CrudRepository<portfolio, Long>{

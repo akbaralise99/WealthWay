@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.WealthWay.Repository.PortfolioRepository;
 import com.WealthWay.Services.PortfolioService;
 import com.WealthWay.model.PortfolioDTO;
-import com.WealthWay.model.portfolio;
+import com.WealthWay.model.Entity.portfolio;
 @Service
 public class PortfolioServiceImpl implements PortfolioService{
 	
