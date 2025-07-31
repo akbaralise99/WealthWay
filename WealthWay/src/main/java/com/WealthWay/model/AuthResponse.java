@@ -1,22 +1,25 @@
 package com.WealthWay.model;
 public class AuthResponse {
     private String token;
-    private String username;
+    private long userId;
+	
+    public long getUserId() {
+		return userId;
+	}
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
 	public String getToken() {
 		return token;
 	}
-	public String getUsername() {
-		return username;
-	}
-	public AuthResponse(String token, String username) {
+	
+	public AuthResponse(String token, long userId) {
 		super();
 		this.token = token;
-		this.username = username;
+		this.userId = userId;
 	}
 	public void setToken(String token) {
 		this.token = token;
 	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
+	
 }

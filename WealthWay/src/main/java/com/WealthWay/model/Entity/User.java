@@ -2,16 +2,26 @@ package com.WealthWay.model.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
-
 @Entity
-@Table(name = "users")
+@Table(name = "user")
+@Data
 public class User {
-    @Id @GeneratedValue
-    private Long id;
-    private String name;
+    
+	 @Id
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+     private Long id;
+    
+    public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	private String name;
     private String email;
     private String password;
     private String role;

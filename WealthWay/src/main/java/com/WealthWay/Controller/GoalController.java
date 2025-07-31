@@ -12,16 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.WealthWay.Services.GoalService;
 import com.WealthWay.model.GoalDto;
 
-import lombok.RequiredArgsConstructor;
-
 @RestController
 @RequestMapping("/api/portfolio")
-@RequiredArgsConstructor
 public class GoalController {
 
    @Autowired private  GoalService goalService;
 
-    @PostMapping("/goals/projection")
+    @PostMapping("/goals")
   //  @PreAuthorize("hasRole('USER')")
     public ResponseEntity<?> projectGoal(@RequestBody GoalDto goalDto) {
         double sip = goalService.calculateRequiredSIP(goalDto);
@@ -29,7 +26,7 @@ public class GoalController {
             goalDto.getTargetAmount() + " in " + goalDto.getYearsToAchieve() + " years.");
     }
 
-    @GetMapping("/goals/future-value")
+    @GetMapping("/goals")
  //   @PreAuthorize("hasRole('USER')")
     public ResponseEntity<?> futureValue(
             @RequestParam double monthlyInvestment,

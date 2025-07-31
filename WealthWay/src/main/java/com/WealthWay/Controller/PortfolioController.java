@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.WealthWay.Services.PortfolioService;
 import com.WealthWay.model.PortfolioDTO;
 import com.WealthWay.model.Entity.portfolio;
-@RestController()
+
+@RestController
 @RequestMapping("/api/portfolio")
 public class PortfolioController {
  

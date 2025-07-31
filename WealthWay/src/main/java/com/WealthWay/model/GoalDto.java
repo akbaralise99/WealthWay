@@ -6,6 +6,13 @@ public class GoalDto {
     private double targetAmount;
     private int yearsToAchieve;
     private double currentInvestment;
+    public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	private String email;
 	
     
     public String getGoalName() {

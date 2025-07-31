@@ -20,7 +20,14 @@ public class GoalServiceImpl implements GoalService {
 
     // Future Value formula: FV = P * [ (1 + r)^n – 1 ] / r
     public double calculateRequiredSIP(GoalDto goalDto) {
-        double fv = goalDto.getTargetAmount();
+    	double amount = 0;
+    	if(goalDto.getCurrentInvestment() >0) {
+    	 amount= goalDto.getTargetAmount() -goalDto.getCurrentInvestment();}
+    	else {
+    		 amount=goalDto.getTargetAmount();
+    	 }
+       
+    	double fv = amount;
         double r = 0.12 / 12; // assume 12% annual return, monthly
         int n = goalDto.getYearsToAchieve() * 12;
 
@@ -32,9 +39,7 @@ public class GoalServiceImpl implements GoalService {
          goal.setTargetAmount(goalDto.getTargetAmount());
          goal.setYearsToAchieve(goalDto.getYearsToAchieve());
          goal.setSipAmountRequired(sip);
-         
-         User user=userAuthRepo.findByUserId(goalDto.getUserId());
-        goal.setUser(user);
+         goal.setUserId(goalDto.getUserId());
         goals.save(goal);
         return sip;
     }

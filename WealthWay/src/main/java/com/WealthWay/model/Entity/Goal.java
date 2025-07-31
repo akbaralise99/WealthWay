@@ -1,15 +1,15 @@
 package com.WealthWay.model.Entity;
 
-import org.springframework.data.annotation.Id;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Data;
 
 @Entity
-@Table(name = "goal")
+@Table(name = "goals")
+@Data
 public class Goal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,9 +20,19 @@ public class Goal {
     private int yearsToAchieve;      // e.g., 15
     private double currentInvestment;// optional
     private double sipAmountRequired;
+    public long getUserId() {
+		return userId;
+	}
 
-    @ManyToOne
-    private User user;
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
+	private long userId;
+   
+
+//    @ManyToOne
+//    private User user;
 
 	public Long getId() {
 		return id;
@@ -44,9 +54,7 @@ public class Goal {
 		return currentInvestment;
 	}
 
-	public User getUser() {
-		return user;
-	}
+	
 
 	public void setId(Long id) {
 		this.id = id;
@@ -68,9 +76,7 @@ public class Goal {
 		this.currentInvestment = currentInvestment;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+   
 
 	public double getSipAmountRequired() {
 		return sipAmountRequired;
